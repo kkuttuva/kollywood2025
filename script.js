@@ -12,7 +12,7 @@ const quizData = [
         image: "images/rukmini.jpg",
         answer: "Rukmini Vasanth",
         alternatives: ["Rukmini Vasanth", "Rukmini"],
-        hint: "This talented actress was in the limelight in 2025 for her critically acclaimed performances in multiple blockbuster films, earning recognition for her powerful on-screen presence.",
+        hint: "Pan India crush of 2025!",
         fullImage: true
     },
     {
@@ -31,9 +31,9 @@ const quizData = [
     },
     {
         image: "images/priya-varrier.jpg",
-        answer: "Priya Warrior",
+        answer: "Priya Prakash Varrier",
         alternatives: ["Priya Warrior", "Priya"],
-        hint: "Ignited 'Thottu Thottu Pesum Sultana' fans...",
+        hint: "Re-Ignited 'Thottu Thottu Pesum Sultana' fans...",
         fullImage: true
     },
     {
@@ -61,7 +61,7 @@ const quizData = [
         image: "images/mrunal.jpg",
         answer: "Mrunal Thakur",
         alternatives: ["Mrunal Thakur", "Mrunal"],
-        hint: "Will give heart break to Rajinikanth soon, if rumors are true..",
+        hint: "Will give heart break to Rajinikanth soon, if the rumors are true..",
         fullImage: true
     },
     {
@@ -286,7 +286,7 @@ function showResults() {
     if (score <= 5) {
         resultMessage.textContent = 'Ignorance is not bliss, here! Level up in 2026.';
     } else if (percent === 100) {
-        resultMessage.textContent = 'Perfect! You are a true Kollywood fan! 🌟';
+        resultMessage.textContent = 'Impressive, You are a true Kollywood fan!';
     } else if (percent >= 80) {
         resultMessage.textContent = 'Excellent! You know your Kollywood stars well! 👏';
     } else if (percent >= 60) {
