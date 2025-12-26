@@ -15,3 +15,10 @@
 *.tmp
 *.temp
 
+# Images (uncomment if you want to track images separately)
+# *.jpg
+# *.jpeg
+# *.png
+# *.gif
+# *.webp
+

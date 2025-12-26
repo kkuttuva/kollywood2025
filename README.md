@@ -62,12 +62,26 @@ const quizData = [
 
 ## Image Sources
 
-**Note**: Currently, the quiz uses placeholder images from Unsplash. For a production version, you should:
+The quiz uses a combination of:
+- **Wikimedia Commons images** (freely licensed) for some celebrities
+- **Local images** in the `images/` folder for others
 
-1. Replace images with actual celebrity photos
-2. Ensure you have proper rights to use the images
-3. Consider hosting images in the repository or using a CDN
-4. Update the `image` property in the `quizData` array
+### Adding Missing Images
+
+Some celebrities need images to be added to the `images/` folder:
+- `diwakar.jpg`
+- `soubin-shahir.jpg`
+- `priya-warrior.jpg`
+- `sudha-kongara.jpg`
+- `mari-selvaraj.jpg`
+- `kaviya-maran.jpg`
+
+See `images/README.md` for detailed instructions on finding and adding free-to-use images.
+
+**Important**: Always ensure you have the right to use images. When in doubt:
+- Use Wikimedia Commons (Creative Commons licensed images)
+- Get permission from copyright holders
+- Check license terms before using
 
 ## License
 

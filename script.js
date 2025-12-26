@@ -1,64 +1,75 @@
 // Quiz data - Kollywood personalities popular in 2025
+// All images are sourced from the images/ folder
 const quizData = [
     {
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+        image: "images/diwakar.jpg",
         answer: "Diwakar",
         alternatives: ["Diwakar"],
-        hint: "This actor-director gained prominence in 2025 for his groundbreaking experimental films and unique storytelling approach that challenged conventional cinema."
+        hint: "The popular 'Watermelon Star' and Big Boss fame!",
+        fullImage: true
     },
     {
-        image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop",
+        image: "images/rukmini.jpg",
         answer: "Rukmini Vasanth",
         alternatives: ["Rukmini Vasanth", "Rukmini"],
-        hint: "This talented actress was in the limelight in 2025 for her critically acclaimed performances in multiple blockbuster films, earning recognition for her powerful on-screen presence."
+        hint: "This talented actress was in the limelight in 2025 for her critically acclaimed performances in multiple blockbuster films, earning recognition for her powerful on-screen presence.",
+        fullImage: true
     },
     {
-        image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
+        image: "images/soubin-shahir.jpg",
         answer: "Soubin Shahir",
         alternatives: ["Soubin Shahir", "Soubin"],
-        hint: "This versatile actor was celebrated in 2025 for his natural performances in crossover films between Malayalam and Tamil cinema, gaining widespread recognition."
+        hint: "Yeah, the famous Coolie Villain!",
+        cropImage: true
     },
     {
-        image: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=400&h=400&fit=crop",
+        image: "images/upendra.jpg",
         answer: "Upendra",
         alternatives: ["Upendra", "Upendra Rao"],
-        hint: "This acclaimed actor-director made headlines in 2025 with his unique directorial ventures in Tamil cinema, known for his unconventional and thought-provoking films."
+        hint: "Hard.. popular Cameo role in Coolie",
+        fullImage: true
     },
     {
-        image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop",
+        image: "images/priya-varrier.jpg",
         answer: "Priya Warrior",
         alternatives: ["Priya Warrior", "Priya"],
-        hint: "This actress and social activist gained prominence in 2025 for her powerful performances in films addressing social issues and her advocacy work in the industry."
+        hint: "Ignited 'Thottu Thottu Pesum Sultana' fans...",
+        fullImage: true
     },
     {
-        image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop",
+        image: "images/sudha-kongara.jpg",
         answer: "Sudha Kongara",
         alternatives: ["Sudha Kongara", "Sudha"],
-        hint: "This celebrated director was in the limelight in 2025 for directing multiple critically acclaimed and commercially successful films, continuing her streak of impactful storytelling."
+        hint: "Iruthisutru fame... wait for Parasakthi",
+        fullImage: true
     },
     {
-        image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=400&fit=crop",
+        image: "images/mari-selvaraj.jpg",
         answer: "Mari Selvaraj",
         alternatives: ["Mari Selvaraj", "Mari"],
-        hint: "This acclaimed director made waves in 2025 with his hard-hitting social dramas that addressed important social issues, earning both critical acclaim and commercial success."
+        hint: "Easy guess... Bison director",
+        fullImage: true
     },
     {
-        image: "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=400&h=400&fit=crop",
+        image: "images/kaviya-maran.jpg",
         answer: "Kaviya Maran",
         alternatives: ["Kaviya Maran", "Kaviya"],
-        hint: "This prominent figure was in the spotlight in 2025 for her significant role in sports and entertainment business, particularly as the owner of an IPL cricket team."
+        hint: "Yeah.. Anirudh's latest crush...",
+        fullImage: true
     },
     {
-        image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=400&h=400&fit=crop",
+        image: "images/mrunal.jpg",
         answer: "Mrunal Thakur",
         alternatives: ["Mrunal Thakur", "Mrunal"],
-        hint: "This Bollywood actress gained attention in 2025 for her successful foray into Tamil cinema, with standout performances that established her as a versatile pan-Indian actress."
+        hint: "Will give heart break to Rajinikanth soon, if rumors are true..",
+        fullImage: true
     },
     {
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+        image: "images/arjun.jpg",
         answer: "Arjun Das",
         alternatives: ["Arjun Das", "Arjun"],
-        hint: "This actor was celebrated in 2025 for his impactful negative roles and character performances in multiple high-profile films, becoming one of the most sought-after character artists."
+        hint: "The Good Bad Ugly dude",
+        fullImage: true
     }
 ];
 
@@ -179,6 +190,19 @@ function loadQuestion() {
     celebrityImage.src = question.image;
     celebrityImage.alt = question.answer;
     
+    // Apply crop-image class for Soubin (default is full image)
+    if (question.cropImage) {
+        celebrityImage.classList.add('crop-image');
+    } else {
+        celebrityImage.classList.remove('crop-image');
+    }
+    
+    // Handle image load errors with a fallback
+    celebrityImage.onerror = function() {
+        this.src = "https://via.placeholder.com/400x400/667eea/ffffff?text=" + encodeURIComponent(question.answer);
+        this.alt = question.answer + " (Image not available)";
+    };
+    
     // Reset UI
     answerInput.value = '';
     answerInput.disabled = false;
@@ -259,7 +283,9 @@ function showResults() {
     percentage.textContent = percent + '%';
     
     // Result message based on score
-    if (percent === 100) {
+    if (score <= 5) {
+        resultMessage.textContent = 'Ignorance is not bliss, here! Level up in 2026.';
+    } else if (percent === 100) {
         resultMessage.textContent = 'Perfect! You are a true Kollywood fan! 🌟';
     } else if (percent >= 80) {
         resultMessage.textContent = 'Excellent! You know your Kollywood stars well! 👏';
