@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kollywood Stars Quiz 2025</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="start-screen" class="screen active">
+            <div class="start-content">
+                <h1>🎬 Kollywood Stars Quiz 2025</h1>
+                <p>Test your knowledge of prominent Kollywood personalities!</p>
+                <p class="subtitle">Can you identify these popular faces?</p>
+                <button id="start-btn" class="btn btn-primary">Start Quiz</button>
+            </div>
+        </div>
+
+        <div id="quiz-screen" class="screen">
+            <div class="quiz-header">
+                <div class="progress-bar">
+                    <div id="progress" class="progress-fill"></div>
+                </div>
+                <div class="score-display">
+                    <span>Score: <strong id="score">0</strong> / <span id="total-questions">0</span></span>
+                </div>
+            </div>
+
+            <div class="question-container">
+                <div class="question-number">
+                    Question <span id="current-question-num">1</span> of <span id="total-question-num">10</span>
+                </div>
+                
+                <div class="image-container">
+                    <img id="celebrity-image" src="" alt="Kollywood Celebrity">
+                </div>
+
+                <div class="question-text">
+                    <p>Who is this prominent Kollywood personality?</p>
+                </div>
+
+                <div class="input-container">
+                    <input 
+                        type="text" 
+                        id="answer-input" 
+                        placeholder="Enter the name..."
+                        autocomplete="off"
+                        spellcheck="false"
+                    >
+                    <button id="submit-btn" class="btn btn-submit">Submit</button>
+                </div>
+
+                <div id="feedback" class="feedback hidden">
+                    <div id="feedback-message" class="feedback-message"></div>
+                    <div id="feedback-answer" class="feedback-answer"></div>
+                    <div id="feedback-hint" class="feedback-hint"></div>
+                    <button id="next-btn" class="btn btn-next hidden">Next Question</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="result-screen" class="screen">
+            <div class="result-content">
+                <h1>🎉 Quiz Complete!</h1>
+                <div class="final-score">
+                    <div class="score-circle">
+                        <span id="final-score">0</span>
+                        <span class="score-total">/ <span id="final-total">0</span></span>
+                    </div>
+                    <div class="score-percentage">
+                        <span id="percentage">0%</span>
+                    </div>
+                </div>
+                <div class="result-message" id="result-message"></div>
+                <button id="restart-btn" class="btn btn-primary">Play Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
